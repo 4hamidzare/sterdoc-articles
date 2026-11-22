@@ -37,11 +37,14 @@ Use WebSearch and WebFetch. Every factual statement must come from at least one 
 Translate title, excerpt, SEO description, slug and HTML into: nl (Dutch), de (German), fr (French), es (Spanish), ar (Arabic), ru (Russian). Use the professional terms of each country: NL «CSA», DE «AEMP», «RDG», FR «stérilisation», «laveur-désinfecteur», ES «central de esterilización», RU «ЦСО», AR «قسم التعقيم المركزي». Slugs in Latin letters (transliterate for ar and ru). Keep links, numbers, standard names and units unchanged. Keep "Viva Sterilization!" untranslated if it appears. In the language versions, change links to the catalogue to the language folder (for example `/nl/products/`).
 
 ## 5. Photo
-Find one photo that fits the topic (for example a hospital sterilization room, laboratory, autoclave, surgical instruments, gloves, packaging). Use only:
-- Pexels (pexels.com, Pexels licence) or Unsplash (unsplash.com, Unsplash licence), or
-- Wikimedia Commons (commons.wikimedia.org) files that are Public Domain or CC0 only.
-No recognisable faces as the main subject, no logos or brand names, no patient images, no images of other manufacturers' products. Use the direct image file URL (images.pexels.com/…, images.unsplash.com/…, upload.wikimedia.org/…), landscape, at least 1600 px wide (for Pexels add `?auto=compress&cs=tinysrgb&w=1600`). Record the photographer and the page link.
-Tip: search with WebSearch limited to pexels.com (for example "pexels.com photo sterile instruments"), open the photo page from the results with WebFetch, and read the photographer, licence and orientation there. The direct file is always `https://images.pexels.com/photos/<ID>/pexels-photo-<ID>.jpeg` (ID = the number at the end of the page address); add `?auto=compress&cs=tinysrgb&w=1600`. You do not need to download the photo yourself: the website downloads it. Prefer landscape photos. Unsplash+ photos are NOT free — skip anything marked "Unsplash+".
+First choice: Hamid's own free photos on **krinmed.com**.
+- List them with the WordPress media API, for example `https://krinmed.com/wp-json/wp/v2/media?per_page=100&media_type=image` (add `&search=<word>` to narrow it), or look at the images on https://krinmed.com/ itself (for example the editorial images under `/wp-content/themes/krinmed-new/assets/editorial/`).
+- Use only general, illustrative photos (sterile processing rooms, autoclaves, instruments, packaging, laboratories). Do NOT use product photos that show a brand name or logo (for example "EEP" or "Krinmed" products) — this is the Sterdoc website.
+- Use the full-size file URL (without a `-1024x683` size suffix when the full file exists). Leave `credit_html` empty for krinmed.com photos.
+- Try not to reuse a photo that an earlier article in feed.json already uses, unless nothing else fits.
+
+Only if krinmed.com has nothing suitable, use a free photo from Pexels (Pexels licence) or Unsplash (free Unsplash licence, never "Unsplash+"), or a Wikimedia Commons file that is Public Domain or CC0. No recognisable faces as the main subject, no logos or brand names, no patient images, no other manufacturers' products. Landscape, at least 1600 px wide. Record the photographer and page link in `credit_html` (e.g. `Photo: <a href="…">Name</a> / Pexels`).
+Tip for Pexels: search with WebSearch limited to pexels.com, open the photo page from the results with WebFetch, and read photographer, licence and orientation there. The direct file is `https://images.pexels.com/photos/<ID>/pexels-photo-<ID>.jpeg?auto=compress&cs=tinysrgb&w=1600` (ID = the number at the end of the page address). You do not need to download the photo yourself: the website downloads it.
 
 ## 6. Publish
 Add the article at the top of `feed.json` (keep at most 40 articles) in this form:
