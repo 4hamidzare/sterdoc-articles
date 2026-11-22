@@ -38,7 +38,7 @@ Translate title, excerpt, SEO description, slug and HTML into: nl (Dutch), de (G
 
 ## 5. Photo
 First choice: Hamid's own free photos on **krinmed.com**.
-- List them with the WordPress media API, for example `https://krinmed.com/wp-json/wp/v2/media?per_page=100&media_type=image` (add `&search=<word>` to narrow it), or look at the images on https://krinmed.com/ itself (for example the editorial images under `/wp-content/themes/krinmed-new/assets/editorial/`).
+- Open https://krinmed.com/free-photos/ with WebFetch and read the list of photos (image address and alt text). If that page does not exist yet, look at the images on https://krinmed.com/ itself (for example the editorial images under `/wp-content/themes/krinmed-new/assets/editorial/`). Do not use `/wp-json/` (it is blocked for fetching).
 - Use only general, illustrative photos (sterile processing rooms, autoclaves, instruments, packaging, laboratories). Do NOT use product photos that show a brand name or logo (for example "EEP" or "Krinmed" products) — this is the Sterdoc website.
 - Use the full-size file URL (without a `-1024x683` size suffix when the full file exists). Leave `credit_html` empty for krinmed.com photos.
 - Try not to reuse a photo that an earlier article in feed.json already uses, unless nothing else fits.
