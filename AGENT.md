@@ -41,6 +41,7 @@ Find one photo that fits the topic (for example a hospital sterilization room, l
 - Pexels (pexels.com, Pexels licence) or Unsplash (unsplash.com, Unsplash licence), or
 - Wikimedia Commons (commons.wikimedia.org) files that are Public Domain or CC0 only.
 No recognisable faces as the main subject, no logos or brand names, no patient images, no images of other manufacturers' products. Use the direct image file URL (images.pexels.com/…, images.unsplash.com/…, upload.wikimedia.org/…), landscape, at least 1600 px wide (for Pexels add `?auto=compress&cs=tinysrgb&w=1600`). Record the photographer and the page link.
+Tip: search with WebSearch limited to pexels.com (for example "pexels.com photo sterile instruments"), open the photo page from the results with WebFetch, and read the photographer, licence and orientation there. The direct file is always `https://images.pexels.com/photos/<ID>/pexels-photo-<ID>.jpeg` (ID = the number at the end of the page address); add `?auto=compress&cs=tinysrgb&w=1600`. You do not need to download the photo yourself: the website downloads it. Prefer landscape photos. Unsplash+ photos are NOT free — skip anything marked "Unsplash+".
 
 ## 6. Publish
 Add the article at the top of `feed.json` (keep at most 40 articles) in this form:
