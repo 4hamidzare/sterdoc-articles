@@ -1,6 +1,6 @@
 # sterdoc-articles
 
-Article feed for the Sterdoc website (https://new.sterdoc.nl/articles/).
+Article feed for the Sterdoc website (https://sterdoc.nl/articles/).
 
 - `AGENT.md` — the instructions the Sterdoc article agent follows every run (every two days).
 - `feed.json` — the newest articles in seven languages; the website imports new ones every hour.
