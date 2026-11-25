@@ -37,12 +37,22 @@ Use WebSearch and WebFetch. Every factual statement must come from at least one 
 Translate title, excerpt, SEO description, slug and HTML into: nl (Dutch), de (German), fr (French), es (Spanish), ar (Arabic), ru (Russian). Use the professional terms of each country: NL «CSA», DE «AEMP», «RDG», FR «stérilisation», «laveur-désinfecteur», ES «central de esterilización», RU «ЦСО», AR «قسم التعقيم المركزي». Slugs in Latin letters (transliterate for ar and ru). Keep links, numbers, standard names and units unchanged. Keep "Viva Sterilization!" untranslated if it appears. In the language versions, change links to the catalogue to the language folder (for example `/nl/products/`).
 
 ## 5. Photo
-Use ONLY Sterdoc's own photos in this repository: `media/photos/` (list with alt texts and themes in `media/photos/photos.json`).
+Use ONLY Sterdoc's own photos in this repository: `media/photos/` (list with alt texts and themes in `media/photos/photos.json`). The website's "Sterdoc Article Photos" plugin downloads them into the sterdoc.nl media library every hour.
+
+### 5a. First: add new photos from Hamid's Google Drive
+Hamid puts new photos in the Google Drive folder "Site-Pictures for AI" (folder id `1CJnvJtbMtUaIb6W_wL7R5qk7FSUTNw0j`, with subfolders). `media/photos/drive_seen.json` lists every Drive file already reviewed (accepted or not) and the time of the last check.
+- With the Google Drive connector, search: `'1CJnvJtbMtUaIb6W_wL7R5qk7FSUTNw0j' in ancestors and mimeType contains 'image/' and createdTime > '<last_check>'` (excludeContentSnippets true). Large results are saved to a file: read them with python, not into the conversation.
+- Ignore files already in drive_seen.json, WordPress size copies (title ends in `-<W>x<H>.<ext>`), and exact duplicates (same title apart from a trailing `-1`, `-2`, … and same size). If a `-scaled` copy exists, download that one instead of a very large original. Files over 10 MB cannot be downloaded: record them as "too large".
+- Download each candidate and LOOK at it. Accept it only if: it fits CSSD / sterile processing / infection prevention / operating theatre / laboratory; no logo, brand name or product of another company is visible (e.g. EEP, Krinmed, Tuttnauer, KINTEK); no recognisable face as the main subject; no patient; landscape; at least 1600 px wide. Sterdoc's own products are allowed but mark them as product photos in photos.json.
+- Save accepted photos as JPG, 1600 px wide, quality about 84, with a short descriptive English file name (lowercase, hyphens) in `media/photos/`, and add an entry to `photos.json` (file, alt, themes).
+- Record every reviewed file in `drive_seen.json` (id, title, result: "accepted: <file>" or a short reason), and set `last_check` to the current time.
+- If Google Drive cannot be reached, skip 5a and mention it in the report. Never let 5a stop the article.
+
+### 5b. Choose the photo
 - Pick the photo whose themes best fit the article. Prefer one that no article in feed.json uses yet; if all suitable photos are used, reuse the one that was used longest ago.
 - Image URL: `https://raw.githubusercontent.com/4hamidzare/sterdoc-articles/main/media/photos/<file>`; `source`: the same URL; `alt`: from photos.json (adjust slightly to the article if needed); `credit_html`: empty.
 - `sterdoc-steam-indicator-tape.jpg` shows a Sterdoc product: use it only for an article about indicator tape or Type 1 process indicators.
-- Do NOT use Pexels, Unsplash, Wikimedia or krinmed.com: the website could not load Pexels images, and krinmed.com photos show other brands.
-- If Hamid adds new photos to `media/photos/`, he also adds them to photos.json; use only photos listed there.
+- Do NOT use Pexels, Unsplash, Wikimedia or krinmed.com.
 
 ## 6. Publish
 Add the article at the top of `feed.json` (keep at most 40 articles) in this form:
@@ -52,7 +62,7 @@ Add the article at the top of `feed.json` (keep at most 40 articles) in this for
            "credit_html": ""},
  "lang": {"en": {"title": "…", "slug": "…", "excerpt": "…", "seo": "…", "html": "…"}, "nl": {…}, "de": {…}, "fr": {…}, "es": {…}, "ar": {…}, "ru": {…}}}
 ```
-Check that the file is valid JSON before you write it. Add one line to `topics.md`. Validate the JSON with `python3 -m json.tool feed.json`. Commit both files to `main` with the message `Article: <English title>` and push.
+Check that the file is valid JSON before you write it. Add one line to `topics.md`. Validate the JSON with `python3 -m json.tool feed.json`. Commit feed.json, topics.md and any new files in media/photos/ to `main` with the message `Article: <English title>` and push.
 
 ## 7. Report
 Finish with a short report in Persian (Farsi) for Hamid: the article title (English), a 2-line summary, the sources used, the photo and its licence, and that it will appear on https://sterdoc.nl/articles/ within an hour.
