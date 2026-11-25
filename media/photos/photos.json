@@ -1,0 +1,13 @@
+{
+ "note": "Sterdoc's own photos for articles (from Hamid, Google Drive 'Site-Pictures for AI', 2026-11-25). Free to use on sterdoc.nl, no credit needed. URL: https://raw.githubusercontent.com/4hamidzare/sterdoc-articles/main/media/photos/<file>",
+ "photos": [
+  {"file": "sterile-packs-storage-drawer.jpg", "alt": "Sterile instrument packs stored in a drawer", "themes": ["storage", "sterile barrier systems", "packaging", "transport"]},
+  {"file": "surgical-instruments-blue.jpg", "alt": "Surgical instruments on a blue sterile drape", "themes": ["instruments", "operating theatre", "general"]},
+  {"file": "gloved-hands-instrument-tray.jpg", "alt": "Gloved hands handling a tray of clean instruments", "themes": ["cleaning", "washer-disinfector", "inspection", "packing"]},
+  {"file": "surgical-hand-washing.jpg", "alt": "Surgical staff washing hands before a procedure", "themes": ["infection prevention", "hygiene", "training"]},
+  {"file": "cleanroom-operator-equipment.jpg", "alt": "Operator in protective clothing checking equipment in a clean room", "themes": ["quality", "validation", "audits", "low-temperature methods"]},
+  {"file": "lab-incubator-vials.jpg", "alt": "Laboratory worker placing vials in an incubator", "themes": ["biological indicators", "testing", "load release"]},
+  {"file": "cleanroom-operator-tablet.jpg", "alt": "Operator with a tablet in a clean processing area", "themes": ["traceability", "documentation", "regulation", "CSSD organisation"]},
+  {"file": "sterdoc-steam-indicator-tape.jpg", "alt": "Sterdoc steam indicator tape roll", "themes": ["Sterdoc product: only for an article about indicator tape / Type 1 indicators"]}
+ ]
+}
